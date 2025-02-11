@@ -9,22 +9,21 @@ function setup() {
   shapes.push({ type: "quad", x1: 330, y1: 100, x2: 400, y2: 200, x3: 550, y3: 200, x4: 450, y4: 100, color: "white" });
   shapes.push({ type: "sqr", x: 400, y: 200, size: 150, color: "white" });
   selectedColor = "red";
+  shapes.push({ type: 'circle', x: 50, y: 50, radius: 50, color: 'white' });
 }
 
 function draw() {
   background(220);
+
   shapes.forEach((shape) => {
     fill(shape.color);
-    if (shape.type === "square") {
-      square(shape.x, shape.y, shape.size);
-    } else if (shape.type === 'triangle') {
-      triangle(shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3);
-    } else if (shape.type === 'quad') {
-      quad(shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3, shape.x4, shape.y4);
-    } else if (shape.type === 'sqr') {
-      square(shape.x, shape.y, shape.size);
+    switch (shape.type) {
+      case 'square': square(shape.x, shape.y, shape.size);
+      case 'triangle': triangle(shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3);
+      case 'quad': quad(shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3, shape.x4, shape.y4);
+      case 'sqr': square(shape.x, shape.y, shape.size);
+      case 'circle': circle(shape.x, shape.y, shape.radius);
     }
-
   });
 
   fill("red");
@@ -57,7 +56,6 @@ function triangleArea(x1, y1, x2, y2, x3, y3) {
   );
 }
 
-// Function to check if a point is inside the triangle
 function isInsideTriangle(px, py, x1, y1, x2, y2, x3, y3) {
   let mainArea = triangleArea(x1, y1, x2, y2, x3, y3);
   let area1 = triangleArea(px, py, x2, y2, x3, y3);
@@ -82,33 +80,38 @@ function mousePressed() {
   }
 
   shapes.forEach((shape) => {
-    if (shape.type === "square") {
-      if (
-        mouseX > shape.x &&
-        mouseX < shape.x + shape.size &&
-        mouseY > shape.y &&
-        mouseY < shape.y + shape.size
-      ) {
-        shape.color = selectedColor;
-      }
-    }
-    else if (shape.type === "triangle") {
-      if (isInsideTriangle(mouseX, mouseY, shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3)) {
-        shape.color = selectedColor;
-      }
-    } else if (shape.type === 'quad') {
-      if (isInsideTriangle(mouseX, mouseY, shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3)) {
-        shape.color = selectedColor;
-      }
-    } else if (shape.type === 'sqr') {
-      if (
-        mouseX > shape.x &&
-        mouseX < shape.x + shape.size &&
-        mouseY > shape.y &&
-        mouseY < shape.y + shape.size
-      ) {
-        shape.color = selectedColor;
-      }
+    switch (shape.type) {
+      case 'square':
+        if (
+          mouseX > shape.x &&
+          mouseX < shape.x + shape.size &&
+          mouseY > shape.y &&
+          mouseY < shape.y + shape.size
+        ) {
+          shape.color = selectedColor;
+        }
+      case 'triangle':
+        if (isInsideTriangle(mouseX, mouseY, shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3)) {
+          shape.color = selectedColor;
+        }
+      case 'quad':
+        if (isInsideTriangle(mouseX, mouseY, shape.x1, shape.y1, shape.x2, shape.y2, shape.x3, shape.y3) || isInsideTriangle(mouseX, mouseY, shape.x1, shape.y1, shape.x2, shape.y2, shape.x4, shape.y4)) {
+          shape.color = selectedColor;
+        }
+      case 'sqr':
+        if (
+          mouseX > shape.x &&
+          mouseX < shape.x + shape.size &&
+          mouseY > shape.y &&
+          mouseY < shape.y + shape.size
+        ) {
+          shape.color = selectedColor;
+        }
+      case 'circle':
+        let distance = dist(mouseX, mouseY, shape.x, shape.y);
+        if (distance <= shape.radius) {
+          shape.color = selectedColor;
+        }
     }
   });
 }
