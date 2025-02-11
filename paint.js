@@ -2,7 +2,7 @@ let shapes = [];
 let selectedColor;
 
 function setup() {
-  createCanvas(1200, 550);
+  createCanvas(1780, 550);
 
   shapes.push({ type: "square", x: 250, y: 200, size: 150, color: "white" });
   shapes.push({ type: "triangle", x1: 250, y1: 200, x2: 330, y2: 100, x3: 400, y3: 200, color: "white" });
