@@ -32,4 +32,4 @@ var rotation = function (r) {
   };
 };
 
-new p5(rotation, 'sketch-3');
+new p5(rotation, 'sketch-1');
