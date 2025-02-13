@@ -6,23 +6,43 @@
       body {
         background: url(assets/introbg.jpg) no-repeat center center fixed;
         background-size: cover;
+        height: 1000px;
+      }
+      img {
+        border: 5px solid skyblue;
+        border-radius: 20px;
+      }
+      h1 {
+        color: #ffff;
+        text-align: center;
+      }
+      section {
+        height: 30%;
+        width: 20%;
+        float: left;
       }
     </style>
   </head>
   <body>
-    <h1 style="color: #ffff" align="center">The Artistry Hub</h1>
-    <div style="padding-left: 300px; text-align: left">
-      <a href="painting.html"
-        ><img
-          src="assets/paint.jpg"
-          width="300"
-          height="300"
-          style="border: 5px solid skyblue; border-radius: 20px" /></a
-      ><a href="playGround.html"
-        ><img
-          src="assets/letsPlay.webp"
-          style="border: 5px solid skyblue; border-radius: 20px"
-      /></a>
-    </div>
+    <header>
+      <h1>The Artistry Hub</h1>
+    </header>
+    <main style="padding-left: 300px; text-align: left; height: 100%">
+      <section>
+        <a href="painting.html"
+          ><img src="assets/paint.jpg" width="300" height="300"
+        /></a>
+      </section>
+      <section style="padding-left: 20px">
+        <a href="playGround.html"
+          ><img src="assets/letsPlay.webp" width="300" height="300"
+        /></a>
+      </section>
+      <section style="padding-left: 20px">
+        <a href="moving.html"
+          ><img src="assets/varai-rara.gif" width="300" height="300"
+        /></a>
+      </section>
+    </main>
   </body>
 </html>
