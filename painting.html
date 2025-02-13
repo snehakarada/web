@@ -4,15 +4,41 @@
     <title>paint</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
   </head>
-  <body style="background-color: azure; height: 1000px">
-    <header style="border: 1px; height: 10%">
+  <body style="height: 10000px">
+    <header
+      style="border: 1px; height: 10%; background-color: #cb9df0; height: 100px"
+    >
       <h1 align="center">Welcome to painting hub</h1>
     </header>
-    <main style="border: 1px">
-      <h3>LET'S PAINT THIS HOUSE</h3>
-      <script src="paint.js"></script>
+    <main style="border: 1px; height: 1000px">
+      <section
+        id="sketch-container-1"
+        style="
+          /* border: 1px solid black; */
+          background-color: #f0c1e1;
+          height: 600px;
+          width: 1500px;
+          display: inline-block;
+        "
+      >
+        <div>
+          <h3>LET'S PAINT THIS HOUSE</h3>
+          <br />
+          <script src="paint.js"></script>
+        </div>
+      </section>
+      <hr />
+      <section
+        id="sketch-container-2"
+        style="background-color: #fddbbb; height: 600px"
+      >
+        <h3>ARE YOU INTRESTED IN DRAWING</h3>
+        <br />
+        <script src="drawing.js"></script>
+      </section>
+      <hr />
     </main>
-    <footer style="border: 1px; height: 20%">
+    <!-- <footer style="border: 1px; height: 20%; background-color: #fff2c2">
       <p align="center">
         If you are intrested to develop this on your own learn
         <strong>p5.js</strong><br />
@@ -23,6 +49,6 @@
         />
         book reference <a href="https://natureofcode.com/">Nature of code</a>
       </p>
-    </footer>
+    </footer> -->
   </body>
 </html>
