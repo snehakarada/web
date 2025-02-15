@@ -8,7 +8,7 @@ var squarePack = function (s) {
     s.fill(s.random(255), s.random(255), s.random(255));
     let x = s.floor(s.random(850));
     let y = s.floor(s.random(400));
-    let size = s.random(20);
+    let size = s.random(40);
     s.square(x, y, size);
   };
 };

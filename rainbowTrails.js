@@ -1,8 +1,8 @@
 var draft = function (p) {
   let r, g, b, circleX = 0, circleY = 0;
   p.setup = function () {
-    p.createCanvas(2000, 700);
-    p.background(220);
+    p.createCanvas(1770, 500);
+    p.background(244, 248, 211);
 
   };
 

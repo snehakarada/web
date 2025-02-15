@@ -3,10 +3,40 @@
   <head>
     <title>paint</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <style>
+      body {
+        height: 1000px;
+      }
+      header {
+        background-color: #f7cfd8;
+        text-align: center;
+        height: 10%;
+      }
+      main {
+        height: 100%;
+      }
+      section {
+        height: 56%;
+        width: 100%;
+        border: 1px solid black;
+        background-color: #f4f8d3;
+        /* float: left; */
+      }
+    </style>
   </head>
-  <body style="background-color: azure">
-    <h1>Welcome to games hub</h1>
-    <h3>HAVE YOU EVER PLAYED WITH RAINBOW TRAILS</h3>
-    <script src="rainbowTrails.js"></script>
+  <body>
+    <header>
+      <h1>Welcome to games hub</h1>
+    </header>
+    <main>
+      <section id="sketch-container-2">
+        <h3>HAVE YOU EVER PLAYED WITH RAINBOW TRAILS</h3>
+        <script src="rainbowTrails.js"></script>
+      </section>
+      <section id="sketch1">
+        <h3>HAVE YOU EVER PLAYED WITH RAINBOW TRAILS</h3>
+        <script src="tom.js"></script>
+      </section>
+    </main>
   </body>
 </html>
