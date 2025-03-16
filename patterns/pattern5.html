@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pattern</title>
+  </head>
+  <body>
+    <div id="sketch-2"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(400, 400);
+      }
+
+      function draw() {
+        background(220);
+        for (let i = 0, a = 0; i < height; i += 40, a++) {
+          for (let j = 0, b = 0; j < width; j += 40, b++) {
+            fill("white");
+            square(j, i, 40);
+            fill("black");
+            triangle(j, i, j, i + 40, j + 40, i + 40);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pattern</title>
+  </head>
+  <body>
+    <div id="sketch-2"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(400, 400);
+      }
+
+      function draw() {
+        for (let i = 0, a = 0; i < height; i += 40, a++) {
+          for (let j = 0, b = 0; j < width; j += 40, b++) {
+            fill("white");
+            square(j, i, 40);
+            fill("black");
+
+            if ((a + b) % 2 === 0) {
+              horizental(j, i);
+            } else {
+              vertical(j, i);
+            }
+          }
+        }
+      }
+
+      function horizental(x, y) {
+        triangle(x, y, x + 40, y, x + 20, y + 20);
+        triangle(x, y + 40, x + 40, y + 40, x + 20, y + 20);
+      }
+
+      function vertical(x, y) {
+        triangle(x, y, x, y + 40, x + 20, y + 20);
+        triangle(x + 40, y, x + 40, y + 40, x + 20, y + 20);
+      }
+    </script>
+  </body>
+</html>

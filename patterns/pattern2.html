@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pattern</title>
+  </head>
+  <body>
+    <div id="sketch-2"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(400, 400);
+      }
+
+      function draw() {
+        background(220);
+        for (let i = 0, a = 0; i < height; i += 40, a += 1) {
+          for (let j = 0, b = 0; j < width; j += 40, b += 1) {
+            square(j, i, 40);
+            if ((a + b) % 2 === 0) {
+              horizental(j, i);
+            } else {
+              verical(j, i);
+            }
+          }
+        }
+      }
+
+      function horizental(start, end) {
+        for (let i = end; i < end + 40; i += 2) {
+          line(start, i, start + 40, i);
+        }
+      }
+
+      function verical(start, end) {
+        for (let i = end; i < end + 40; i += 2) {
+          for (let j = start; j < start + 40; j += 2) line(j, i, j, end + 40);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pattern</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(400, 400);
+      }
+
+      function draw() {
+        background(220);
+        const half = width / 2;
+        line(half, 0, half, width);
+        line(0, half, height, half);
+        line(0, 0, width, height);
+        line(width, 0, 0, height);
+
+        for (let i = 0; i < width / 4; i += 5) {
+          triangle(i, i, half - i, i, half - i, half - i);
+          triangle(i, half, i, i * 2, half - i, half);
+          triangle(half, i, width - i * 2, i, half, half - i);
+          triangle(height - i, i, height - i, half - i, half + i, half - i);
+          triangle(i, width - i, i, half + i, half - i, half + i);
+          triangle(half, half + i, i * 2, height - i, half, height - i);
+          triangle(
+            half + i,
+            half + i,
+            half + i,
+            height - i,
+            height - i,
+            height - i
+          );
+          triangle(
+            half + i,
+            half,
+            height - i,
+            height - i * 2,
+            height - i,
+            half
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
