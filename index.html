@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>craft</title>
+    <title>Document</title>
+    <style>
+      body {
+        background: url(assets/introbg.jpg) no-repeat center center fixed;
+        background-size: cover;
+        height: 1000px;
+      }
+      img {
+        border: 5px solid skyblue;
+        border-radius: 20px;
+      }
+      h1 {
+        color: #ffff;
+        text-align: center;
+      }
+      section {
+        height: 30%;
+        width: 20%;
+        float: left;
+      }
+      #text {
+        width: 18vw;
+        height: 30vh;
+        border: 1px solid black;
+        margin-left: 3vh;
+      }
+    </style>
   </head>
-  <style>
-    #space{
-      padding-top: 5px;
-    }
-    body {
-      background: url(assets/bg.jpg) no-repeat center center fixed;
-      background-size: cover;
-    }
-    div{
-      text-align: center;
-      padding-top: 160px; 
-    }
-    button {
-      background-color: yellow;
-      border: 1px solid yellow;
-      border-radius: 5px;
-    }
-  </style>
   <body>
-    <div>
-      <img
-        src="assets/heading.jpeg"
-        width="400"
-        height="200"
-        alt="Art heaven"
-      />
-    </div>
-    <div id="space">
-      <button>
-        <a href="intro.html" style="text-decoration: none; color: black"
-          >Enter</a
-      </button>
-    </div>
+    <header>
+      <h1>The Artistry Hub</h1>
+    </header>
+    <main style="padding-left: 300px; text-align: left; height: 100%">
+      <section>
+        <a href="./letsPaint/painting.html"
+          ><img src="assets/paint.jpg" width="300" height="300"
+        /></a>
+      </section>
+      <section style="padding-left: 20px">
+        <a href="./letsPlay/playGround.html"
+          ><img src="assets/letsPlay.webp" width="300" height="300"
+        /></a>
+      </section>
+      <section style="padding-left: 20px">
+        <a href="./moveable/moving.html"
+          ><img src="assets/varai-rara.gif" width="300" height="300"
+        /></a>
+      </section>
+      <section>
+        <div id="text">
+          <h1><a href="./patterns/index.html">patterns</a></h1>
+        </div>
+      </section>
+      <!-- <div id="text">
+        <h1>patterns</h1>
+      </div> -->
+    </main>
   </body>
 </html>
