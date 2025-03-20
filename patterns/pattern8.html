@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pattern</title>
+  </head>
+  <body>
+    <div id="sketch-2"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script>
+      let length = 0;
+      let length1 = 0;
+      let length2 = 0;
+      let length3 = 0;
+      let length4 = 0;
+      let length5 = 0;
+      let length6 = 0;
+      let length7 = 0;
+      let flag = "true";
+
+      function setup() {
+        createCanvas(400, 400);
+        frameRate(30);
+      }
+
+      function draw() {
+        background("white");
+        square(0, 0, 400);
+        circle(200, 200, length);
+        circle(200, 200, length1);
+        circle(200, 200, length2);
+        circle(200, 200, length3);
+        circle(200, 200, length4);
+        circle(200, 200, length5);
+        circle(200, 200, length6);
+        circle(200, 200, length7);
+        if (length > 300) {
+          flag = false;
+        }
+        if (length < 0) {
+          flag = true;
+        }
+        if (!flag) {
+          decrease();
+        }
+        if (flag) {
+          increase();
+        }
+      }
+
+      function increase() {
+        length += 2;
+        length1 += 1.8;
+        length2 += 1.5;
+        length3 += 1.2;
+        length4 += 0.9;
+        length5 += 0.7;
+        length6 += 0.5;
+      }
+
+      function decrease() {
+        length -= 2;
+        length1 -= 1.8;
+        length2 -= 1.5;
+        length3 -= 1.2;
+        length4 -= 0.9;
+        length5 -= 0.7;
+        length6 -= 0.5;
+      }
+    </script>
+  </body>
+</html>
