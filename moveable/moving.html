@@ -16,6 +16,12 @@
       .playGround {
         width: 400px;
       }
+      .dimensions {
+        height: 40%;
+        width: 50%;
+        border: 30x solid black;
+        float: left;
+      }
     </style>
   </head>
   <body>
@@ -23,27 +29,15 @@
       <h1>If moving things excite you, this page is for you!</h1>
     </header>
     <main style="height: 100%; width: 100%">
-      <section
-        style="height: 40%; width: 50%; border: 3px solid black; float: left"
-        id="sketch-1"
-      >
+      <section class="dimensions" id="sketch-1">
         <script src="./rotate.js"></script>
-      </section>
-      <section
-        style="height: 40%; width: 49%; border: 3px solid black; float: left"
-        id="sketch-2"
-      >
-        <script src="./squarePack.js"></script>
-      </section>
-      <section
-        style="height: 40%; width: 50%; border: 3px solid black; float: left"
-        id="sketch-3"
-      >
-        <script src="./bouncingBall.js"></script>
       </section>
       <div>
         <embed src="./fractalTree.html" width="800px" height="800px" />
       </div>
+      <section class="dimensions" id="sketch-3">
+        <script src="./bouncingBall.js"></script>
+      </section>
     </main>
   </body>
 </html>
