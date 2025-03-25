@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pattern</title>
+  </head>
+  <body>
+    <div id="sketch-2"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(400, 400);
+      }
+
+      function* tiles() {
+        let tileSize = 40;
+        for (let i = 0, a = 0; i < height; i += tileSize, a++) {
+          for (let j = 0, b = 0; j < width; j += tileSize, b++) {
+            yield {
+              x: j,
+              y: i,
+              a: a,
+              b: b,
+              size: tileSize,
+            };
+          }
+        }
+      }
+      const func = tiles();
+
+      function draw() {
+        const data = func.next().value;
+        square(data.x, data.y, data.size);
+        if ((data.a + data.b) % 2 === 0) {
+          line(data.x + 15, data.y, data.x + 15, data.y + 40);
+          line(data.x + 25, data.y, data.x + 25, data.y + 40);
+        } else {
+          line(data.x, data.y + 15, data.x + 40, data.y + 15);
+          line(data.x, data.y + 25, data.x + 40, data.y + 25);
+        }
+      }
+    </script>
+  </body>
+</html>
