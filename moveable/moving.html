@@ -22,22 +22,30 @@
         border: 30x solid black;
         float: left;
       }
+      main {
+        height: 90vh;
+        width: 100vw;
+        border: 1px solid black;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
     </style>
   </head>
   <body>
     <header>
       <h1>If moving things excite you, this page is for you!</h1>
     </header>
-    <main style="height: 100%; width: 100%">
+    <main>
       <section class="dimensions" id="sketch-1">
         <script src="./rotate.js"></script>
       </section>
-      <div>
-        <embed src="./fractalTree.html" width="800px" height="800px" />
-      </div>
       <section class="dimensions" id="sketch-3">
         <script src="./bouncingBall.js"></script>
       </section>
+      <div class="dimensions">
+        <embed src="./fractalTree.html" width="800px" height="800px" />
+      </div>
     </main>
   </body>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pattern</title>
+  </head>
+  <body>
+    <div id="sketch-2"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(400, 400);
+      }
+
+      function* tiles() {
+        const tileSize = 40;
+        for (let i = 0, a = 0; i < height; i += tileSize, a++) {
+          for (let j = 0, b = 0; j < width; j += tileSize, b++) {
+            yield {
+              x: j,
+              y: i,
+              a: a,
+              b: b,
+              size: tileSize,
+            };
+          }
+        }
+      }
+      const func = tiles();
+
+      function draw() {
+        const data = func.next().value;
+        strokeWeight(0);
+        fill("white");
+        square(data.x, data.y, data.size);
+        fill("black");
+
+        if (data.a % 2 === 0) {
+          down(data);
+        } else {
+          up(data);
+        }
+      }
+
+      const down = ({ x, y, a, b, size }) => {
+        const s = 15;
+        if (b % 2 === 0) {
+          const x1 = x + size;
+          const y1 = y + size;
+          triangle(x1, y1, x1 - s, y1, x1, y1 - s);
+          strokeWeight(8);
+          line(x, y + size, x + size, y);
+        } else {
+          const x1 = x;
+          const y1 = y + size;
+          triangle(x1, y1, x1, y1 - s, x1 + s, y1);
+          strokeWeight(8);
+          line(x, y, x + size, y + size);
+        }
+      };
+      const up = ({ x, y, a, b, size }) => {
+        const s = 15;
+        if (b % 2 === 0) {
+          const x1 = x + size;
+          const y1 = y;
+          triangle(x1, y1, x1 - s, y1, x1, y1 + s);
+          strokeWeight(8);
+          line(x, y, x + size, y + size);
+        } else {
+          triangle(x, y, x, y + s, x + s, y);
+          strokeWeight(8);
+          line(x + size, y, x, y + size);
+        }
+      };
+    </script>
+  </body>
+</html>
