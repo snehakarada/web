@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pattern</title>
+  </head>
+  <body>
+    <div id="sketch-2"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script>
+      function setup() {
+        createCanvas(400, 400);
+      }
+      function* tiles() {
+        let tileSize = 80;
+        for (let i = 0, a = 0; i < height; i += tileSize, a++) {
+          for (let j = 0, b = 0; j < width; j += tileSize, b++) {
+            yield {
+              x: j,
+              y: i,
+              a: a,
+              b: b,
+              size: tileSize,
+            };
+          }
+        }
+      }
+      const func = tiles();
+
+      function draw() {
+        const data = func.next().value;
+        square(data.x, data.y, data.size);
+        fillTile(data.x, data.y, data.size);
+      }
+
+      const fillTile = (x, y, size) => {
+        fill("white");
+        rect(x, y, 40, 50);
+        horizentalLines(x, y, 40, 50);
+        rect(x + 40, y, 40, 30);
+        verticalLines(x + 40, y, 40, 30);
+        rect(x + 40, y + 30, 40, 50);
+        horizentalLines(x + 40, y + 30, 40, 50);
+        rect(x, y + 50, 40, 30);
+        verticalLines(x, y + 50, 40, 30);
+        fill(0, 0, 0);
+        square(x + 30, y + 30, 20);
+      };
+
+      const horizentalLines = (x, y, height, width) => {
+        for (let i = y; i < y + width; i += 2) {
+          line(x, i, x + 40, i);
+        }
+      };
+
+      const verticalLines = (x, y, height, width) => {
+        for (let i = x; i < x + height; i += 2) {
+          line(i, y, i, y + 30);
+        }
+      };
+    </script>
+  </body>
+</html>
